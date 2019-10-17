@@ -17,8 +17,9 @@ function filterLogsOnDate(logs, dateFilter) {
   logs.forEach((log) => {
     const timestampDate = new Date(log.timestamp)
 
-    if (parsedDateFilter.toDateString() === timestampDate.toDateString()) {
+    if (parsedDateFilter.getUTCDate() === timestampDate.getUTCDate()) {
       filteredLogs.push(log)
+      //console.log('parsedDateFilter.getUTCDate()')
     }
   })
 
@@ -36,3 +37,6 @@ function filterLogs(logs, env, dateFilter) {
 }
 
 module.exports = filterLogs
+//console.log(filterLogsByEnv)
+console.log(filterLogsOnDate)
+//console.log(filterLogs)
